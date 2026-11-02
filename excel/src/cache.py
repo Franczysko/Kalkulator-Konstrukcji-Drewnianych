@@ -1,4 +1,6 @@
 """Copy evaluated formula caches into original XLSX without altering original formulas/charts."""
+from datetime import date, datetime
+from openpyxl.utils.datetime import to_excel
 from pathlib import Path
 import sys
 from zipfile import ZipFile, ZIP_DEFLATED
@@ -27,7 +29,9 @@ def inject(original,calculated,output):
                     if sheet[coord].data_type=='e':raise ValueError((sheet.title,coord,value))
                     v=c.find('{%s}v'%NS)
                     if v is None:v=ET.SubElement(c,'{%s}v'%NS)
-                    if isinstance(value,str):c.set('t','str');v.text=value
+                    if isinstance(value,(datetime,date)):
+                        c.attrib.pop('t',None);v.text=str(to_excel(value,data.epoch))
+                    elif isinstance(value,str):c.set('t','str');v.text=value
                     elif isinstance(value,bool):c.set('t','b');v.text=str(int(value))
                     elif value is None:c.set('t','str');v.text=''
                     else:c.attrib.pop('t',None);v.text=str(value)
@@ -37,6 +41,8 @@ def inject(original,calculated,output):
                 root=ET.fromstring(payload)
                 for nr in root.findall('.//{%s}numRef'%chartns):
                     formula=nr.find('{%s}f'%chartns).text
+                    if not formula or '!' not in formula:
+                        continue  # Literal numeric series in legacy user workbooks.
                     sheetname,span=formula.rsplit('!',1)
                     sheetname=sheetname.strip("'").replace("''", "'")
                     a,b,cc,d=range_boundaries(span)

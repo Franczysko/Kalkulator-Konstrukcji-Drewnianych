@@ -1,0 +1,8 @@
+{
+  "source_filename": "Sciana_Szczytowa_PL.xlsx",
+  "source_sha256": "6af59abdde0e12a3cde4d11915453bb320aa33f96c5baeb10a208c27e6920838",
+  "delivered_filename": "Sciana_Szczytowa_PL.xlsx",
+  "delivered_sha256": "5d100eca4c8c07db285ac7819da027b6974a8f8f8e9a36231cab27e2ae562532",
+  "changes": "Jeden formularz wejściowy, cztery schematy, źródła materiałów i obciążeń; wysuwnica ukryta.",
+  "verification": "LibreOffice Calc 25.2.3.2; 243 kontrole i końcowa niezależna kontrola modelu po aktualizacji stylu wykresów."
+}

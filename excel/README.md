@@ -1,5 +1,7 @@
 # Kalkulator ścian i wysuwnic — Excel
 
+**Nowsza przebudowa załączonego pliku ściany:** [jeden formularz i cztery schematy](sciana/README.md) · [pobierz Sciana_Szczytowa_PL.xlsx](output/Sciana_Szczytowa_PL.xlsx). Wysuwnica w tej wersji jest ukryta.
+
 Gotowy plik: [output/Kalkulator_konstrukcji_drewnianych.xlsx](output/Kalkulator_konstrukcji_drewnianych.xlsx).
 
 **To wersja rozwojowa z działającą mechaniką ram 3D, a nie kompletny,
