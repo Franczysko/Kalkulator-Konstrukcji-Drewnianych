@@ -1,0 +1,22 @@
+name: Excel QA
+on:
+  push:
+    paths: ['excel/**', '.github/workflows/excel.yml']
+  pull_request:
+    paths: ['excel/**', '.github/workflows/excel.yml']
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: excel/requirements.txt
+      - run: sudo apt-get update && sudo apt-get install -y --no-install-recommends libreoffice-calc
+      - run: python -m pip install -r excel/requirements.txt
+      - run: python excel/tests/run.py

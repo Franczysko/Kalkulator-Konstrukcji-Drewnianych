@@ -1,0 +1,35 @@
+{
+  "runs": [
+    {
+      "run": "baseline-results.json",
+      "passed": 2248,
+      "failed": 0
+    },
+    {
+      "run": "changed_geometry-results.json",
+      "passed": 2248,
+      "failed": 0
+    },
+    {
+      "run": "mechanism-results.json",
+      "passed": 17,
+      "failed": 0
+    },
+    {
+      "run": "missing-results.json",
+      "passed": 1133,
+      "failed": 0
+    },
+    {
+      "run": "overload-results.json",
+      "passed": 3089,
+      "failed": 0
+    },
+    {
+      "run": "triangle-results.json",
+      "passed": 2212,
+      "failed": 0
+    }
+  ],
+  "note": "Counts are numeric assertions, not independent structural design examples."
+}

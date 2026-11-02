@@ -33,3 +33,8 @@ npm run preview -- --port 4174 --strictPort  # po npm run build
 
 Zależności bezpośrednie mają dokładne wersje; `package-lock.json` utrwala drzewo.
 Nie są wymagane sekrety, zewnętrzne usługi ani baza danych.
+
+## Kalkulator Excel
+
+Skoroszyt, generator i wyniki niezależnych testów znajdują się w [excel/](excel/README.md).
+Jest to wersja rozwojowa z jawnym zakresem ograniczeń; nie deklaruje pełnej zgodności normowej.

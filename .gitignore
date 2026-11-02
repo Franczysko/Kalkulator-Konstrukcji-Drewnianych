@@ -6,3 +6,9 @@ test-results/
 .env.*
 !.env.example
 *.log
+
+# Python / Excel QA
+__pycache__/
+.venv/
+*.pyc
+~$*.xlsx

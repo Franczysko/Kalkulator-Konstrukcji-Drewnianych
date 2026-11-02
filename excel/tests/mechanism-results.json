@@ -1,0 +1,23 @@
+{
+  "passed": 17,
+  "failed": 0,
+  "checks": [
+    {"name":"symmetric element stiffness","passed":true,"maximum_absolute_difference":0.0,"rtol":1e-07,"atol":1e-06,"expected":"full numeric reference in frame.solve","actual":"full workbook vector/matrix compared"},
+    {"name":"rigid translation has zero strain","passed":true,"maximum_absolute_difference":0.0,"rtol":1e-07,"atol":1e-07,"expected":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"actual":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]},
+    {"name":"cantilever tip force deflection","passed":true,"maximum_absolute_difference":1.4210854715202004e-14,"rtol":1e-07,"atol":1e-06,"expected":-71.56728629523742,"actual":-71.56728629523744},
+    {"name":"cantilever tip force reactions","passed":true,"maximum_absolute_difference":0.0,"rtol":1e-07,"atol":1e-06,"expected":[1000.0,-3000000.0],"actual":[1000.0,-3000000.0]},
+    {"name":"cantilever uniform load deflection","passed":true,"maximum_absolute_difference":7.105427357601002e-15,"rtol":1e-07,"atol":1e-06,"expected":-40.25659854107105,"actual":-40.25659854107106},
+    {"name":"cantilever uniform load reactions","passed":true,"maximum_absolute_difference":0.0,"rtol":1e-07,"atol":1e-06,"expected":[1500.0,-2250000.0],"actual":[1500.0,-2250000.0]},
+    {"name":"axial extension","passed":true,"maximum_absolute_difference":0.0,"rtol":1e-07,"atol":1e-06,"expected":0.04179728317659352,"actual":0.04179728317659352},
+    {"name":"torsional rotation","passed":true,"maximum_absolute_difference":0.0,"rtol":1e-07,"atol":1e-06,"expected":4.3478260869565215,"actual":4.3478260869565215},
+    {"name":"simply supported exact midspan deflection","passed":true,"maximum_absolute_difference":7.105427357601002e-15,"rtol":1e-07,"atol":1e-06,"expected":43.53883664228492,"actual":43.53883664228491},
+    {"name":"orthonormal coordinate transformation","passed":true,"maximum_absolute_difference":0.0,"rtol":1e-07,"atol":1e-06,"expected":[[1.0,0.0,0.0],[0.0,1.0,0.0],[0.0,0.0,1.0]],"actual":[[1.0,0.0,0.0],[0.0,1.0,0.0],[0.0,0.0,1.0]]},
+    {"name":"orthonormal coordinate transformation","passed":true,"maximum_absolute_difference":1.1102230246251565e-16,"rtol":1e-07,"atol":1e-06,"expected":[[1.0,0.0,0.0],[0.0,1.0,0.0],[0.0,0.0,1.0]],"actual":[[1.0,4.37461672288349e-17,7.234822241347794e-17],[4.37461672288349e-17,0.9999999999999999,2.1461941148432756e-17],[7.234822241347794e-17,2.1461941148432756e-17,0.9999999999999999]]},
+    {"name":"orthonormal coordinate transformation","passed":true,"maximum_absolute_difference":0.0,"rtol":1e-07,"atol":1e-06,"expected":[[1.0,0.0,0.0],[0.0,1.0,0.0],[0.0,0.0,1.0]],"actual":[[1.0,0.0,0.0],[0.0,1.0,0.0],[0.0,0.0,1.0]]},
+    {"name":"mechanism: no Excel error cells","passed":true,"count":0},
+    {"name":"mechanismA: invalid geometry blocks active rows","passed":true,"maximum_absolute_difference":0.0,"rtol":1e-07,"atol":1e-06,"expected":0.0,"actual":0.0},
+    {"name":"mechanismB: invalid geometry blocks active rows","passed":true,"maximum_absolute_difference":0.0,"rtol":1e-07,"atol":1e-06,"expected":0.0,"actual":0.0},
+    {"name":"mechanism: pressure and suction never combined","passed":true},
+    {"name":"mechanism: never false global SPEŁNIA","passed":true}
+  ]
+}
