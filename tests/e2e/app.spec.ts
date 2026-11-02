@@ -1,0 +1,3 @@
+import { test, expect } from '@playwright/test';
+test('wyświetla moduły i tworzy szkic projektu', async ({ page }) => { await page.goto('/'); await expect(page.getByRole('heading', { level: 1 })).toHaveText('Kalkulator konstrukcji drewnianych'); await expect(page.getByRole('listitem')).toHaveCount(5); await page.getByLabel('Nazwa projektu').fill('Dach testowy'); await page.getByRole('button', { name: 'Utwórz szkic' }).click(); await expect(page.getByRole('status')).toHaveText('Utworzono szkic: Dach testowy'); });
+test('odrzuca pusty szkic', async ({ page }) => { await page.goto('/'); await page.getByRole('button', { name: 'Utwórz szkic' }).click(); await expect(page.getByRole('status')).toHaveText('Podaj nazwę projektu.'); });
