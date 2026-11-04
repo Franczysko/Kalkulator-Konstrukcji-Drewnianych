@@ -1,6 +1,6 @@
 # Kalkulator ścian i wysuwnic — Excel
 
-**Aktualny plan: oryginalny wygląd Gable panel stud, adaptacja PL.** [Pobierz poprawiony Excel v2](output/Gable_panel_stud_PL_v2.xlsx) · [zakres i źródła](gable_pl/README.md). Starsze przebudowy są zachowane poniżej.
+**Aktualny plan: oryginalny wygląd Gable panel stud, adaptacja PL.** [Pobierz poprawiony Excel v3](output/Gable_panel_stud_PL_v3.xlsx) · [zakres i źródła](gable_pl/README.md). Starsze przebudowy są zachowane poniżej.
 
 **Nowsza przebudowa załączonego pliku ściany:** [jeden formularz i cztery schematy](sciana/README.md) · [pobierz Sciana_Szczytowa_PL.xlsx](output/Sciana_Szczytowa_PL.xlsx). Wysuwnica w tej wersji jest ukryta.
 

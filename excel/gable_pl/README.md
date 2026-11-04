@@ -1,6 +1,8 @@
 # Gable panel stud — adaptacja PL z zachowaniem wyglądu oryginału
 
-Gotowy plik: [Gable_panel_stud_PL_v2.xlsx](../output/Gable_panel_stud_PL_v2.xlsx).
+Ocena współczynników: [WSPOLCZYNNIKI.md](WSPOLCZYNNIKI.md).
+
+Gotowy plik: [Gable_panel_stud_PL_v3.xlsx](../output/Gable_panel_stud_PL_v3.xlsx).
 
 Poprawka zgodności z Microsoft Excel: usunięto nieaktualny `calcChain.xml` i jego
 odwołania. Wcześniejszy plik zawierał dwa wpisy P60, które po adaptacji nie były
@@ -8,7 +10,7 @@ już formułami. Excel zgłaszał naprawę tych rekordów. Formuły, wartości i
 pozostały bez zmian; automatyczne pełne przeliczenie pozwala Excelowi odtworzyć łańcuch.
 Test odtwarza dokładny problem z opublikowanego pliku i sprawdza usunięcie tylko
 metadanych: `python excel/gable_pl/test_package_fix.py`. Nie wykonano otwarcia
-wersji v2 w desktopowym Microsoft Excel w tym środowisku Linux.
+wersji v3 w desktopowym Microsoft Excel w tym środowisku Linux.
 
 Zgodnie ze zmianą planu jest to adaptacja **oryginalnego „Gable panel stud design
 EC5.xlsx”**. Nie wykorzystuje przebudowanego wcześniej formularza ściany.
@@ -25,9 +27,9 @@ wyniki podręczne wracają do oryginalnych komórek bez zmiany ich formatowania.
 Test wykazał:
 
 - 40 elementów pakietu XLSX; usunięto wyłącznie opcjonalny, nieaktualny łańcuch obliczeń z oryginalnych 41 elementów;
-- **34 elementy identyczne bajt po bajcie**, w tym styles.xml, motyw, rysunki,
-  VML, kontrolki, ustawienia drukarek, relacje i pozostałe pliki;
-- identyczne metadane układu wszystkich trzech arkuszy: komórki i ich style,
+- **30 elementów identycznych bajt po bajcie**, w tym styles.xml, motyw, rysunki,
+  ustawienia drukarek i pozostałe pliki; w VML i właściwościach kontrolek zmieniono tylko zakres listy płyt z 9 na 11 pozycji;
+- identyczne metadane układu obu kart obliczeniowych i dotychczasowych komórek bazy; w istniejących pustych wierszach bazy dodano dane dwóch płyt:
   wysokości/szerokości, scalenia, widoki, obszary wydruku i formatowanie warunkowe;
 - zmiany wyłącznie zawartości komórek trzech arkuszy oraz metadanych przeliczania
   i parametrów nazwanych w workbook.xml; deklaracje pakietu i relacje zaktualizowano wyłącznie w celu usunięcia calcChain.xml.
@@ -57,7 +59,7 @@ jako podstawę zadania, bez aktualizowania ich wydań i poprawek**.
 
 Nie mieszano danych TR26 z klasą C24. Domyślnie wybrano istniejącą pozycję C24
 (`Value!M6=2`); właściwości TR26 pozostawione w oryginalnej tabeli **nie są
-potwierdzonym polskim materiałem**. Wybór TR26 nie daje wyniku OK.
+potwierdzonym polskim materiałem**. Wybór TR26 daje FAIL jako nieobsługiwany materiał, nie jako udowodnione przekroczenie jego nośności.
 Starsze wydanie PN-EN 338 zastosowano świadomie, zgodnie z poleceniem. Nie
 zastąpiono go arbitralnie danymi z nowszego wydania.
 
@@ -105,7 +107,7 @@ ich za potwierdzony pełny polski zestaw kombinacji. W szczególności nie ma pe
 obwiedni 6.10a/b, śniegu prowadzącego ani innych sytuacji projektowych.
 
 0,0045L zachowano jako **odziedziczony limit projektowy**, aby nie wymyślać
-uniwersalnego polskiego limitu dla słupka. Bez potwierdzenia nie daje wyniku OK.
+uniwersalnego polskiego limitu dla słupka. Wynik OK dotyczy porównania z tym wpisanym limitem, którego zasadność trzeba sprawdzić dla projektu.
 Nie zastąpiono go arbitralnie L/300 dla belki, która nie jest tym słupkiem.
 
 Nie wykazano rzeczywistego usztywnienia słupka, podparcia na obu końcach,
@@ -114,30 +116,64 @@ metody γ. Samo d=3,35 mm i s=300 mm z oryginału nie wystarcza do sprawdzenia
 nośności i rozmieszczenia gwoździ. Wzór Kser przyjęto dla gwoździ bez nawiercania,
 drewno–drewno, wg tab.7.1; nie dla dowolnych wkrętów, płytek lub kleju.
 
-## Parametry bez dodawania pól do oryginalnego układu
+## OK i FAIL — zakres wyniku
 
-Dodatkowe założenia są nazwami skoroszytu, dostępnymi w Excelu przez
-**Formuły → Menedżer nazw**. Nie ma nowych arkuszy ani ukrytych tabel.
+Usunięto status NZ i niewidoczne przełączniki potwierdzeń. Każde pole statusu
+pokazuje wyłącznie **OK** albo **FAIL**:
+
+- OK przy `csi`: policzony warunek przekroju i wyboczenia dla pokazanej kombinacji
+  mieści się w granicy 1 przy poprawnych wejściach.
+- OK przy ugięciu: policzone ugięcie mieści się we wpisanym limicie.
+- FAIL: przekroczenie albo brak/błąd danych potrzebnych do danego sprawdzenia.
+  Przy niekompletnych liczbach pola obliczeniowe mogą pokazywać BRAK.
+
+To **nie jest zbiorcze zatwierdzenie projektu**, potwierdzenie wartości cpe/cpi,
+pełnej obwiedni kombinacji ani nośności połączeń. Ten zakres podano w istniejących
+uwagach obu kart; nie dodano pól ani przełączników akceptacji na kartach.
+
+Parametry rzeczywiście uczestniczące w obliczeniach, dostępne przez Menedżer nazw:
 
 | Nazwa | Domyślnie | Znaczenie |
 |---|---|---|
 | `_PL_klasa_uzytkowania` | 2 | Klasa 1, 2 lub 3 |
-| `_PL_Ce`, `_PL_Ct` | 1 | Współczynniki śniegu przyjęte przez projektanta |
-| `_PL_beta_L` | 1 | Wspólny współczynnik długości wyboczeniowej; nie zmienia momentu i ugięcia belki |
+| `_PL_Ce`, `_PL_Ct` | 1 | Współczynniki śniegu przyjmowane dla obiektu |
+| `_PL_beta_L` | 1 | Wspólny współczynnik długości wyboczeniowej; nie zmienia momentu i ugięcia |
 | `_PL_ksys` | 1 | Brak automatycznego zwiększenia wytrzymałości za współpracę systemu |
-| `_PL_limit_ratio` | 0,0045 | Przykładowy limit u/L odziedziczony z UK |
-| `_PL_kombinacje_potwierdzone` | 0 | Nie potwierdzono kombinacji PN-EN 1990/NA |
-| `_PL_wiatr_potwierdzony`, `_PL_snieg_potwierdzony` | 0 | Dane rzeczywistego obiektu wymagają potwierdzenia |
-| `_PL_schemat_potwierdzony` | 0 | Brak potwierdzenia warunków podparcia i stateczności poza sprawdzonym mechanizmem |
-| `_PL_limit_potwierdzony` | 0 | Brak uzasadnionego limitu SGU dla konkretnego projektu |
-| `_PL_polaczenie_potwierdzone` | 0 | Brak kompletnego zewnętrznego sprawdzenia połączenia warstw |
-| `_PL_Flacznika_Rd_N` | 0 | Brak potwierdzonej obliczeniowej nośności łącznika |
+| `_PL_limit_ratio` | 0,0045 | Odziedziczony limit projektowy u/L; nie uniwersalny polski limit |
+| `_PL_G_inne_kN_m2` | 0 | Dodatkowy ciężar ściany dla dwóch nowych opcji płyt |
 
-Wartość 1 dla potwierdzenia oznacza rzeczywiste udokumentowane sprawdzenie przez
-projektanta, **nie sposób na ominięcie brakującej analizy**. Przy braku danych
-przypadek bez przekroczenia daje NZ. FAIL oznacza przekroczenie dla aktualnie
-wprowadzonych danych i założeń; OK może dotyczyć wyłącznie zakresu tej karty.
-Żaden status nie zastępuje projektu całej ściany, przepony ani prefabrykatu.
+## MFP 12 mm i OSB 18 mm bez płyt g-k
+
+W obu oryginalnych listach rozwijanych dostępne są dwie nowe pozycje:
+
+- **EXTERNAL 12mm MFP, no insulation, no plasterboard** — pozycja 10;
+- **EXTERNAL 18mm OSB, no insulation, no plasterboard** — pozycja 11.
+
+Zachowano wielkość i położenie list. Zmieniono zakres zarówno w ctrlProps, jak
+i w VML, aby natywny Excel widział obie opcje. Obie karty korzystają teraz
+z wybranej płyty; pole F22 na Edgewise nie ma już stałej wartości 0,24.
+
+Nie ma dostarczonej gęstości konkretnego produktu MFP/OSB. **Nie wpisano 700 kg/m³
+ani innej hipotetycznej gęstości jako danych produktu.** W bazie Value wpisz:
+
+| Komórka | Dane |
+|---|---|
+| U14 | Gęstość MFP 12 mm [kg/m³], z karty producenta |
+| U15 | Gęstość OSB 18 mm [kg/m³], z karty producenta |
+
+To gęstość **płyty**, nie gęstość drewna C24 wynosząca w przyjętej tabeli 420 kg/m³.
+Dla nowych opcji masa jest liczona jako `g_płyty = ρ · t · 9,80665 / 1000 [kN/m²]`.
+Każda karta dodaje ciężar własnego słupka, zależny od n·b·h, rozstawu i ρmean
+wybranej klasy drewna, oraz ewentualne `_PL_G_inne_kN_m2`. Dotyczy jednej warstwy
+poszycia. Ciężar drugiej strony, rygli, ocieplenia i innych warstw wymaga uzupełnienia.
+
+Dotychczasowe 9 pozycji zachowuje dotychczasowe wartości ciężaru z szablonu.
+Nie dołożono do nich automatycznie ponownie ciężaru słupków. Nie stwierdzono,
+że te odziedziczone wartości są właściwe dla każdego rzeczywistego układu warstw.
+
+Wybór płyty zmienia ciężar; **nie włącza automatycznie stężenia, sztywności przepony
+ani skrócenia długości wyboczeniowej**. Takie działanie wymaga osobnej analizy
+płyty, jej mocowania i przekazywania sił.
 
 ## Wyniki przykładu po korektach
 
@@ -146,7 +182,7 @@ C24, klasa użytkowania 2, bez kredytowania niepotwierdzonych stężeń:
 | Karta | Wykorzystanie | Ugięcie chwilowe |
 |---|---:|---:|
 | Flatwise timber | 1,4904 | 24,9079 mm |
-| Edgewise timber | 2,0259 | 26,7746 mm |
+| Edgewise timber | 1,9675 | 26,7746 mm |
 
 Obie karty pokazują FAIL dla pozostawionych danych przykładowych i przyjętych
 założeń. Nie oznacza to oceny rzeczywistej ściany z innymi przekrojami,
@@ -155,11 +191,11 @@ nie zaimplementowano pełzania, II rzędu i pełnej obwiedni SGU.
 
 ## Weryfikacja i odtworzenie
 
-337 kontroli: niezależne wzory dla siły osiowej, momentu, kc, nośności,
+394 kontrole: niezależne wzory dla siły osiowej, momentu, kc, nośności,
 ugięcia, sztywności zespolonej i obciążenia gwoździa; C18/C24/C30; klasa
 użytkowania 3; nachylenia 30/45/60°; 1/2/3 warstwy; ssanie; inny rozstaw
 słupków i odległość wiązara; zmiana długości wyboczeniowej; brak wiatru;
-same obciążenia stałe; kontrola braku fałszywego OK. Do tego kontrola pakietu
+same obciążenia stałe; kontrola statusów OK/FAIL, dwóch nowych płyt oraz FAIL przy braku gęstości. Gęstość 700 kg/m³ w testach jest wyłącznie wartością syntetyczną, nie danymi produktu. Do tego kontrola pakietu
 i ponowne otwarcie pliku dostarczanego. Wyniki: [test_results.json](test_results.json).
 
 ```sh

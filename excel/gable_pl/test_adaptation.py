@@ -22,7 +22,7 @@ def check(name,a,b,tol=1e-7):
 
 
 def layout(original,adapted):
- allowed={'xl/workbook.xml','xl/worksheets/sheet1.xml','xl/worksheets/sheet2.xml','xl/worksheets/sheet3.xml','xl/_rels/workbook.xml.rels','[Content_Types].xml','xl/calcChain.xml'}
+ allowed={'xl/workbook.xml','xl/worksheets/sheet1.xml','xl/worksheets/sheet2.xml','xl/worksheets/sheet3.xml','xl/_rels/workbook.xml.rels','[Content_Types].xml','xl/calcChain.xml','xl/ctrlProps/ctrlProp3.xml','xl/ctrlProps/ctrlProp6.xml','xl/drawings/vmlDrawing1.vml','xl/drawings/vmlDrawing2.vml'}
  with ZipFile(original) as src,ZipFile(adapted) as out:
   assert set(src.namelist())-{'xl/calcChain.xml'}==set(out.namelist())
   assert 'calcChain' not in out.read('xl/_rels/workbook.xml.rels').decode()
@@ -32,6 +32,8 @@ def layout(original,adapted):
    for child in list(a):
     if child.get('Type','').endswith('/calcChain') or child.get('PartName')=='/xl/calcChain.xml':a.remove(child)
    assert etree.tostring(a,method='c14n')==etree.tostring(b,method='c14n')
+  for filename in ['xl/ctrlProps/ctrlProp3.xml','xl/ctrlProps/ctrlProp6.xml','xl/drawings/vmlDrawing1.vml','xl/drawings/vmlDrawing2.vml']:
+   assert out.read(filename).replace(b'Value!$O$5:$O$15',b'Value!$O$5:$O$13')==src.read(filename), ('Only the board dropdown range may change',filename)
   identical=[]
   for name in src.namelist():
    if name not in allowed:
@@ -41,6 +43,8 @@ def layout(original,adapted):
    for archive in [src,out]:
     root=etree.fromstring(archive.read(f'xl/worksheets/sheet{i}.xml'))
     for c in root.findall('.//m:c',NS):
+     if archive is out and i==3 and c.get('r') in {'O14','O15','T14','T15','U14','U15'}:
+      c.getparent().remove(c);continue
      c.attrib.pop('t',None)
      for child in list(c):c.remove(child)
     roots.append(etree.tostring(root,method='c14n'))
@@ -57,6 +61,21 @@ def layout(original,adapted):
 
 def oracle(w,label):
  mat=w['Value'];idx=int(mat['M6'].value);cls=mat.cell(4+idx,2).value
+ errors=[(ss.title,c.coordinate,c.value) for ss in w for row in ss for c in row if c.data_type=='e'];assert not errors,errors
+ if label=='missing_board':
+  check('missing density remains missing',w['Value']['U4'].value,'BRAK')
+  for side in [0,1]:
+   check('missing density member '+str(side),w.worksheets[side][f'E{45+side}'].value,'FAIL')
+   check('missing density deflection '+str(side),w.worksheets[side][f'H{49+side}'].value,'FAIL')
+  return
+ if label in ['mfp12','osb18']:
+  choice=10 if label=='mfp12' else 11;thickness=.012 if label=='mfp12' else .018
+  check(label+' selected dropdown item',w['Value']['T4'].value,choice)
+  check(label+' board weight only',w['Value']['U4'].value,700*thickness*9.80665/1000)
+  for side in [0,1]:
+   ss=w.worksheets[side];bb=ss[f'C{29+side}'].value;hh=ss[f'E{29+side}'].value;nn=ss[f'R{27+side}'].value;sp=ss['G26' if side==0 else 'H25'].value
+   expected=700*thickness*9.80665/1000+420*bb*hh*nn/1e6/sp*9.80665/1000
+   check(label+' board and stud weight '+str(side),ss['F23' if side==0 else 'F22'].value,expected)
  # Material values independently checked against transcribed primary-source table.
  if cls not in SOFT:return
  fm,ft,fc,fc90,fv,e,e05,rhok,rhom,g=SOFT[cls]
@@ -108,7 +127,8 @@ def oracle(w,label):
   for addr,expected in [(f'O{34+side}',kmod),('P61',snow),(f'C{37+side}',sigman),(f'H{37+side}',sigma_b),(f'C{40+side}',fcd),(f'H{40+side}',fmd),(f'C{45+side}',eta),(f'C{49+side}',u),(f'S{50+2*side}',kc)]:
    check(label+s.title+' '+addr,s[addr].value,expected)
   if label=='low':
-   check(label+s.title+' no false OK',s[f'E{45+side}'].value,'NZ')
+   check(label+s.title+' member-only arithmetic pass',s[f'E{45+side}'].value,'OK')
+   check(label+s.title+' deflection arithmetic pass',s[f'H{49+side}'].value,'OK')
  errors=[(s.title,c.coordinate,c.value) for s in w for row in s for c in row if c.data_type=='e'];assert not errors,errors
 
 
@@ -129,7 +149,7 @@ def variant(source,dest,changes,names):
 
 def run(original):
  source=ROOT/'output/Gable_panel_stud_PL.xlsx';layout(original,source)
- cases=[('base',{},{}),('C18',{'xl/worksheets/sheet3.xml':{'M6':5}},{}),('C30',{'xl/worksheets/sheet3.xml':{'M6':8}},{}),('service3',{}, {'_PL_klasa_uzytkowania':3}),('angle45',{'xl/worksheets/sheet1.xml':{'D12':45},'xl/worksheets/sheet2.xml':{'D11':45}},{}),('angle60',{'xl/worksheets/sheet1.xml':{'D12':60},'xl/worksheets/sheet2.xml':{'D11':60}},{}),('one_ply',{'xl/worksheets/sheet2.xml':{'R28':1}},{}),('two_plies',{'xl/worksheets/sheet2.xml':{'R28':2}},{}),('suction',{'xl/worksheets/sheet1.xml':{'O29':-.7,'O30':.2},'xl/worksheets/sheet2.xml':{'O30':-.7,'O31':.2}},{}),('spacing',{'xl/worksheets/sheet1.xml':{'G26':.4},'xl/worksheets/sheet2.xml':{'H25':.4}},{}),('gap',{'xl/worksheets/sheet2.xml':{'H15':1.2}},{}),('buckling_only',{}, {'_PL_beta_L':.5}),('no_wind',{'xl/worksheets/sheet1.xml':{'D18':0},'xl/worksheets/sheet2.xml':{'D17':0}},{}),('permanent',{'xl/worksheets/sheet1.xml':{'D18':0,'H14':0},'xl/worksheets/sheet2.xml':{'D17':0,'H13':0}},{}),('low',{'xl/worksheets/sheet1.xml':{'D18':.001,'D14':.001,'H14':.001,'F23':.001},'xl/worksheets/sheet2.xml':{'D17':.001,'D13':.001,'H13':.001,'F22':.001}}, {})]
+ cases=[('base',{},{}),('mfp12',{'xl/worksheets/sheet3.xml':{'T4':10,'U14':700}},{}),('osb18',{'xl/worksheets/sheet3.xml':{'T4':11,'U15':700}},{}),('missing_board',{'xl/worksheets/sheet3.xml':{'T4':10}},{}),('C18',{'xl/worksheets/sheet3.xml':{'M6':5}},{}),('C30',{'xl/worksheets/sheet3.xml':{'M6':8}},{}),('service3',{}, {'_PL_klasa_uzytkowania':3}),('angle45',{'xl/worksheets/sheet1.xml':{'D12':45},'xl/worksheets/sheet2.xml':{'D11':45}},{}),('angle60',{'xl/worksheets/sheet1.xml':{'D12':60},'xl/worksheets/sheet2.xml':{'D11':60}},{}),('one_ply',{'xl/worksheets/sheet2.xml':{'R28':1}},{}),('two_plies',{'xl/worksheets/sheet2.xml':{'R28':2}},{}),('suction',{'xl/worksheets/sheet1.xml':{'O29':-.7,'O30':.2},'xl/worksheets/sheet2.xml':{'O30':-.7,'O31':.2}},{}),('spacing',{'xl/worksheets/sheet1.xml':{'G26':.4},'xl/worksheets/sheet2.xml':{'H25':.4}},{}),('gap',{'xl/worksheets/sheet2.xml':{'H15':1.2}},{}),('buckling_only',{}, {'_PL_beta_L':.5}),('no_wind',{'xl/worksheets/sheet1.xml':{'D18':0},'xl/worksheets/sheet2.xml':{'D17':0}},{}),('permanent',{'xl/worksheets/sheet1.xml':{'D18':0,'H14':0},'xl/worksheets/sheet2.xml':{'D17':0,'H13':0}},{}),('low',{'xl/worksheets/sheet1.xml':{'D18':.001,'D14':.001,'H14':.001,'F23':.001},'xl/worksheets/sheet2.xml':{'D17':.001,'D13':.001,'H13':.001,'F22':.001}}, {})]
  with tempfile.TemporaryDirectory(prefix='gable-qa-') as td:
   root=Path(td);base=None
   for label,changes,names in cases:
@@ -138,7 +158,7 @@ def run(original):
    if label=='base':base=after
   final=root/'final.xlsx';cache(source,base,final);source.write_bytes(final.read_bytes())
  layout(original,source);oracle(load_workbook(source,data_only=True),'delivered')
- (ROOT/'output/Gable_panel_stud_PL_v2.xlsx').write_bytes(source.read_bytes())
+ (ROOT/'output/Gable_panel_stud_PL_v3.xlsx').write_bytes(source.read_bytes())
  (ROOT/'gable_pl/test_results.json').write_text(json.dumps({'passed':len(CHECKS),'failed':0,'checks':CHECKS},ensure_ascii=False,indent=2))
  print(len(CHECKS),'checks passed; original layout retained')
 

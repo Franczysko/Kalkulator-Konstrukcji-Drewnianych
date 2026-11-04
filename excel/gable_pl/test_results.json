@@ -1,5 +1,5 @@
 {
-  "passed": 337,
+  "passed": 394,
   "failed": 0,
   "checks": [
     {
@@ -10,7 +10,6 @@
         "xl/theme/theme1.xml",
         "xl/media/image4.png",
         "xl/media/image3.png",
-        "xl/drawings/vmlDrawing2.vml",
         "xl/worksheets/_rels/sheet1.xml.rels",
         "xl/worksheets/_rels/sheet2.xml.rels",
         "xl/worksheets/_rels/sheet3.xml.rels",
@@ -18,7 +17,6 @@
         "xl/drawings/_rels/drawing2.xml.rels",
         "xl/drawings/drawing2.xml",
         "xl/media/image2.png",
-        "xl/drawings/vmlDrawing1.vml",
         "xl/drawings/drawing1.xml",
         "xl/media/image1.png",
         "xl/sharedStrings.xml",
@@ -30,8 +28,6 @@
         "xl/printerSettings/printerSettings2.bin",
         "xl/ctrlProps/ctrlProp4.xml",
         "xl/ctrlProps/ctrlProp5.xml",
-        "xl/ctrlProps/ctrlProp6.xml",
-        "xl/ctrlProps/ctrlProp3.xml",
         "xl/printerSettings/printerSettings3.bin",
         "docProps/app.xml",
         "customXml/item1.xml",
@@ -142,10 +138,10 @@
     },
     {
       "name": "baseEdgewise timber C38",
-      "expected": 0.13031619038507794,
-      "actual": 0.130316190385078,
+      "expected": 0.09010342442763113,
+      "actual": 0.0901034244276311,
       "passed": true,
-      "absolute_difference": 5.551115123125783e-17
+      "absolute_difference": 2.7755575615628914e-17
     },
     {
       "name": "baseEdgewise timber H38",
@@ -170,10 +166,10 @@
     },
     {
       "name": "baseEdgewise timber C46",
-      "expected": 2.0258808248781266,
-      "actual": 2.02588082487813,
+      "expected": 1.9674506856236298,
+      "actual": 1.96745068562363,
       "passed": true,
-      "absolute_difference": 3.552713678800501e-15
+      "absolute_difference": 2.220446049250313e-16
     },
     {
       "name": "baseEdgewise timber C50",
@@ -188,6 +184,391 @@
       "actual": 0.0473378547800678,
       "passed": true,
       "absolute_difference": 6.938893903907228e-18
+    },
+    {
+      "name": "mfp12 selected dropdown item",
+      "expected": 10,
+      "actual": 10,
+      "passed": true,
+      "absolute_difference": 0
+    },
+    {
+      "name": "mfp12 board weight only",
+      "expected": 0.08237586000000001,
+      "actual": 0.08237586,
+      "passed": true,
+      "absolute_difference": 1.3877787807814457e-17
+    },
+    {
+      "name": "mfp12 board and stud weight 0",
+      "expected": 0.105681363725,
+      "actual": 0.105681363725,
+      "passed": true,
+      "absolute_difference": 0.0
+    },
+    {
+      "name": "mfp12 board and stud weight 1",
+      "expected": 0.15206583756000003,
+      "actual": 0.15206583756,
+      "passed": true,
+      "absolute_difference": 2.7755575615628914e-17
+    },
+    {
+      "name": "mfp12Flatwise timber O34",
+      "expected": 0.9,
+      "actual": 0.9,
+      "passed": true,
+      "absolute_difference": 0.0
+    },
+    {
+      "name": "mfp12Flatwise timber P61",
+      "expected": 0.384,
+      "actual": 0.384,
+      "passed": true,
+      "absolute_difference": 0.0
+    },
+    {
+      "name": "mfp12Flatwise timber C37",
+      "expected": 0.2587284460572293,
+      "actual": 0.258728446057229,
+      "passed": true,
+      "absolute_difference": 2.7755575615628914e-16
+    },
+    {
+      "name": "mfp12Flatwise timber H37",
+      "expected": 16.349300821402,
+      "actual": 16.349300821402,
+      "passed": true,
+      "absolute_difference": 0.0
+    },
+    {
+      "name": "mfp12Flatwise timber C40",
+      "expected": 0.4317310848092193,
+      "actual": 0.431731084809219,
+      "passed": true,
+      "absolute_difference": 2.7755575615628914e-16
+    },
+    {
+      "name": "mfp12Flatwise timber H40",
+      "expected": 18.129018986396918,
+      "actual": 18.1290189863969,
+      "passed": true,
+      "absolute_difference": 1.7763568394002505e-14
+    },
+    {
+      "name": "mfp12Flatwise timber C45",
+      "expected": 1.5011119068123526,
+      "actual": 1.50111190681235,
+      "passed": true,
+      "absolute_difference": 2.6645352591003757e-15
+    },
+    {
+      "name": "mfp12Flatwise timber C49",
+      "expected": 24.907866560818974,
+      "actual": 24.907866560819,
+      "passed": true,
+      "absolute_difference": 2.4868995751603507e-14
+    },
+    {
+      "name": "mfp12Flatwise timber S50",
+      "expected": 0.029695788902221427,
+      "actual": 0.0296957889022214,
+      "passed": true,
+      "absolute_difference": 2.7755575615628914e-17
+    },
+    {
+      "name": "mfp12Edgewise timber Kser",
+      "expected": 754.7246357970026,
+      "actual": 754.724635797003,
+      "passed": true,
+      "absolute_difference": 3.410605131648481e-13
+    },
+    {
+      "name": "mfp12Edgewise timber EIu",
+      "expected": 29743319698.39012,
+      "actual": 29743319698.3901,
+      "passed": true,
+      "absolute_difference": 2.288818359375e-05
+    },
+    {
+      "name": "mfp12Edgewise timber nail force",
+      "expected": 1101.8229076261193,
+      "actual": 1101.82290762612,
+      "passed": true,
+      "absolute_difference": 6.821210263296962e-13
+    },
+    {
+      "name": "mfp12Edgewise timber O35",
+      "expected": 0.9,
+      "actual": 0.9,
+      "passed": true,
+      "absolute_difference": 0.0
+    },
+    {
+      "name": "mfp12Edgewise timber P61",
+      "expected": 0.384,
+      "actual": 0.384,
+      "passed": true,
+      "absolute_difference": 0.0
+    },
+    {
+      "name": "mfp12Edgewise timber C38",
+      "expected": 0.10505850542890773,
+      "actual": 0.105058505428908,
+      "passed": true,
+      "absolute_difference": 2.7755575615628914e-16
+    },
+    {
+      "name": "mfp12Edgewise timber H38",
+      "expected": 9.720140524081732,
+      "actual": 9.72014052408173,
+      "passed": true,
+      "absolute_difference": 1.7763568394002505e-15
+    },
+    {
+      "name": "mfp12Edgewise timber C41",
+      "expected": 0.6882195810332936,
+      "actual": 0.688219581033294,
+      "passed": true,
+      "absolute_difference": 3.3306690738754696e-16
+    },
+    {
+      "name": "mfp12Edgewise timber H41",
+      "expected": 20.956033260423407,
+      "actual": 20.9560332604234,
+      "passed": true,
+      "absolute_difference": 7.105427357601002e-15
+    },
+    {
+      "name": "mfp12Edgewise timber C46",
+      "expected": 1.9891807866167217,
+      "actual": 1.98918078661672,
+      "passed": true,
+      "absolute_difference": 1.7763568394002505e-15
+    },
+    {
+      "name": "mfp12Edgewise timber C50",
+      "expected": 26.774550981990153,
+      "actual": 26.7745509819902,
+      "passed": true,
+      "absolute_difference": 4.618527782440651e-14
+    },
+    {
+      "name": "mfp12Edgewise timber S52",
+      "expected": 0.04733785478006781,
+      "actual": 0.0473378547800678,
+      "passed": true,
+      "absolute_difference": 6.938893903907228e-18
+    },
+    {
+      "name": "osb18 selected dropdown item",
+      "expected": 11,
+      "actual": 11,
+      "passed": true,
+      "absolute_difference": 0
+    },
+    {
+      "name": "osb18 board weight only",
+      "expected": 0.12356378999999998,
+      "actual": 0.12356379,
+      "passed": true,
+      "absolute_difference": 2.7755575615628914e-17
+    },
+    {
+      "name": "osb18 board and stud weight 0",
+      "expected": 0.146869293725,
+      "actual": 0.146869293725,
+      "passed": true,
+      "absolute_difference": 0.0
+    },
+    {
+      "name": "osb18 board and stud weight 1",
+      "expected": 0.19325376755999998,
+      "actual": 0.19325376756,
+      "passed": true,
+      "absolute_difference": 2.7755575615628914e-17
+    },
+    {
+      "name": "osb18Flatwise timber O34",
+      "expected": 0.9,
+      "actual": 0.9,
+      "passed": true,
+      "absolute_difference": 0.0
+    },
+    {
+      "name": "osb18Flatwise timber P61",
+      "expected": 0.384,
+      "actual": 0.384,
+      "passed": true,
+      "absolute_difference": 0.0
+    },
+    {
+      "name": "osb18Flatwise timber C37",
+      "expected": 0.2921398037067138,
+      "actual": 0.292139803706714,
+      "passed": true,
+      "absolute_difference": 2.220446049250313e-16
+    },
+    {
+      "name": "osb18Flatwise timber H37",
+      "expected": 16.349300821402,
+      "actual": 16.349300821402,
+      "passed": true,
+      "absolute_difference": 0.0
+    },
+    {
+      "name": "osb18Flatwise timber C40",
+      "expected": 0.4317310848092193,
+      "actual": 0.431731084809219,
+      "passed": true,
+      "absolute_difference": 2.7755575615628914e-16
+    },
+    {
+      "name": "osb18Flatwise timber H40",
+      "expected": 18.129018986396918,
+      "actual": 18.1290189863969,
+      "passed": true,
+      "absolute_difference": 1.7763568394002505e-14
+    },
+    {
+      "name": "osb18Flatwise timber C45",
+      "expected": 1.5785011864474963,
+      "actual": 1.5785011864475,
+      "passed": true,
+      "absolute_difference": 3.774758283725532e-15
+    },
+    {
+      "name": "osb18Flatwise timber C49",
+      "expected": 24.907866560818974,
+      "actual": 24.907866560819,
+      "passed": true,
+      "absolute_difference": 2.4868995751603507e-14
+    },
+    {
+      "name": "osb18Flatwise timber S50",
+      "expected": 0.029695788902221427,
+      "actual": 0.0296957889022214,
+      "passed": true,
+      "absolute_difference": 2.7755575615628914e-17
+    },
+    {
+      "name": "osb18Edgewise timber Kser",
+      "expected": 754.7246357970026,
+      "actual": 754.724635797003,
+      "passed": true,
+      "absolute_difference": 3.410605131648481e-13
+    },
+    {
+      "name": "osb18Edgewise timber EIu",
+      "expected": 29743319698.39012,
+      "actual": 29743319698.3901,
+      "passed": true,
+      "absolute_difference": 2.288818359375e-05
+    },
+    {
+      "name": "osb18Edgewise timber nail force",
+      "expected": 1101.8229076261193,
+      "actual": 1101.82290762612,
+      "passed": true,
+      "absolute_difference": 6.821210263296962e-13
+    },
+    {
+      "name": "osb18Edgewise timber O35",
+      "expected": 0.9,
+      "actual": 0.9,
+      "passed": true,
+      "absolute_difference": 0.0
+    },
+    {
+      "name": "osb18Edgewise timber P61",
+      "expected": 0.384,
+      "actual": 0.384,
+      "passed": true,
+      "absolute_difference": 0.0
+    },
+    {
+      "name": "osb18Edgewise timber C38",
+      "expected": 0.1168890810672056,
+      "actual": 0.116889081067206,
+      "passed": true,
+      "absolute_difference": 4.0245584642661925e-16
+    },
+    {
+      "name": "osb18Edgewise timber H38",
+      "expected": 9.720140524081732,
+      "actual": 9.72014052408173,
+      "passed": true,
+      "absolute_difference": 1.7763568394002505e-15
+    },
+    {
+      "name": "osb18Edgewise timber C41",
+      "expected": 0.6882195810332936,
+      "actual": 0.688219581033294,
+      "passed": true,
+      "absolute_difference": 3.3306690738754696e-16
+    },
+    {
+      "name": "osb18Edgewise timber H41",
+      "expected": 20.956033260423407,
+      "actual": 20.9560332604234,
+      "passed": true,
+      "absolute_difference": 7.105427357601002e-15
+    },
+    {
+      "name": "osb18Edgewise timber C46",
+      "expected": 2.0063709043703244,
+      "actual": 2.00637090437033,
+      "passed": true,
+      "absolute_difference": 5.773159728050814e-15
+    },
+    {
+      "name": "osb18Edgewise timber C50",
+      "expected": 26.774550981990153,
+      "actual": 26.7745509819902,
+      "passed": true,
+      "absolute_difference": 4.618527782440651e-14
+    },
+    {
+      "name": "osb18Edgewise timber S52",
+      "expected": 0.04733785478006781,
+      "actual": 0.0473378547800678,
+      "passed": true,
+      "absolute_difference": 6.938893903907228e-18
+    },
+    {
+      "name": "missing density remains missing",
+      "expected": "BRAK",
+      "actual": "BRAK",
+      "passed": true,
+      "absolute_difference": null
+    },
+    {
+      "name": "missing density member 0",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "passed": true,
+      "absolute_difference": null
+    },
+    {
+      "name": "missing density deflection 0",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "passed": true,
+      "absolute_difference": null
+    },
+    {
+      "name": "missing density member 1",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "passed": true,
+      "absolute_difference": null
+    },
+    {
+      "name": "missing density deflection 1",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "passed": true,
+      "absolute_difference": null
     },
     {
       "name": "C18Flatwise timber O34",
@@ -289,10 +670,10 @@
     },
     {
       "name": "C18Edgewise timber C38",
-      "expected": 0.13031619038507794,
-      "actual": 0.130316190385078,
+      "expected": 0.09010342442763113,
+      "actual": 0.0901034244276311,
       "passed": true,
-      "absolute_difference": 5.551115123125783e-17
+      "absolute_difference": 2.7755575615628914e-17
     },
     {
       "name": "C18Edgewise timber H38",
@@ -317,10 +698,10 @@
     },
     {
       "name": "C18Edgewise timber C46",
-      "expected": 2.5878282290119743,
-      "actual": 2.58782822901197,
+      "expected": 2.5158487640094234,
+      "actual": 2.51584876400942,
       "passed": true,
-      "absolute_difference": 4.440892098500626e-15
+      "absolute_difference": 3.552713678800501e-15
     },
     {
       "name": "C18Edgewise timber C50",
@@ -436,10 +817,10 @@
     },
     {
       "name": "C30Edgewise timber C38",
-      "expected": 0.13031619038507794,
-      "actual": 0.130316190385078,
+      "expected": 0.09010342442763113,
+      "actual": 0.0901034244276311,
       "passed": true,
-      "absolute_difference": 5.551115123125783e-17
+      "absolute_difference": 2.7755575615628914e-17
     },
     {
       "name": "C30Edgewise timber H38",
@@ -464,10 +845,10 @@
     },
     {
       "name": "C30Edgewise timber C46",
-      "expected": 1.8591872256740185,
-      "actual": 1.85918722567402,
+      "expected": 1.8051543422805196,
+      "actual": 1.80515434228052,
       "passed": true,
-      "absolute_difference": 1.5543122344752192e-15
+      "absolute_difference": 4.440892098500626e-16
     },
     {
       "name": "C30Edgewise timber C50",
@@ -583,10 +964,10 @@
     },
     {
       "name": "service3Edgewise timber C38",
-      "expected": 0.13031619038507794,
-      "actual": 0.130316190385078,
+      "expected": 0.09010342442763113,
+      "actual": 0.0901034244276311,
       "passed": true,
-      "absolute_difference": 5.551115123125783e-17
+      "absolute_difference": 2.7755575615628914e-17
     },
     {
       "name": "service3Edgewise timber H38",
@@ -611,10 +992,10 @@
     },
     {
       "name": "service3Edgewise timber C46",
-      "expected": 2.6047039177004496,
-      "actual": 2.60470391770045,
+      "expected": 2.529579452944668,
+      "actual": 2.52957945294467,
       "passed": true,
-      "absolute_difference": 4.440892098500626e-16
+      "absolute_difference": 1.7763568394002505e-15
     },
     {
       "name": "service3Edgewise timber C50",
@@ -730,10 +1111,10 @@
     },
     {
       "name": "angle45Edgewise timber C38",
-      "expected": 0.13466159561006277,
-      "actual": 0.134661595610063,
+      "expected": 0.09444882965261596,
+      "actual": 0.094448829652616,
       "passed": true,
-      "absolute_difference": 2.220446049250313e-16
+      "absolute_difference": 4.163336342344337e-17
     },
     {
       "name": "angle45Edgewise timber H38",
@@ -758,10 +1139,10 @@
     },
     {
       "name": "angle45Edgewise timber C46",
-      "expected": 2.0321948056841665,
-      "actual": 2.03219480568417,
+      "expected": 1.9737646664296693,
+      "actual": 1.97376466642967,
       "passed": true,
-      "absolute_difference": 3.552713678800501e-15
+      "absolute_difference": 6.661338147750939e-16
     },
     {
       "name": "angle45Edgewise timber C50",
@@ -877,10 +1258,10 @@
     },
     {
       "name": "angle60Edgewise timber C38",
-      "expected": 0.15266648936170213,
-      "actual": 0.152666489361702,
+      "expected": 0.11245372340425533,
+      "actual": 0.112453723404255,
       "passed": true,
-      "absolute_difference": 1.3877787807814457e-16
+      "absolute_difference": 3.3306690738754696e-16
     },
     {
       "name": "angle60Edgewise timber H38",
@@ -905,10 +1286,10 @@
     },
     {
       "name": "angle60Edgewise timber C46",
-      "expected": 2.058356359711163,
-      "actual": 2.05835635971116,
+      "expected": 1.9999262204566661,
+      "actual": 1.99992622045667,
       "passed": true,
-      "absolute_difference": 3.1086244689504383e-15
+      "absolute_difference": 3.774758283725532e-15
     },
     {
       "name": "angle60Edgewise timber C50",
@@ -1003,10 +1384,10 @@
     },
     {
       "name": "one_plyEdgewise timber C38",
-      "expected": 0.36835174910746366,
-      "actual": 0.368351749107464,
+      "expected": 0.24771345123512323,
+      "actual": 0.247713451235123,
       "passed": true,
-      "absolute_difference": 3.3306690738754696e-16
+      "absolute_difference": 2.220446049250313e-16
     },
     {
       "name": "one_plyEdgewise timber H38",
@@ -1031,10 +1412,10 @@
     },
     {
       "name": "one_plyEdgewise timber C46",
-      "expected": 2.346233017473958,
-      "actual": 2.34623301747396,
+      "expected": 2.1709425997104677,
+      "actual": 2.17094259971047,
       "passed": true,
-      "absolute_difference": 1.7763568394002505e-15
+      "absolute_difference": 2.220446049250313e-15
     },
     {
       "name": "one_plyEdgewise timber C50",
@@ -1150,10 +1531,10 @@
     },
     {
       "name": "two_pliesEdgewise timber C38",
-      "expected": 0.18982508006567442,
-      "actual": 0.189825080065674,
+      "expected": 0.12950593112950415,
+      "actual": 0.129505931129504,
       "passed": true,
-      "absolute_difference": 4.163336342344337e-16
+      "absolute_difference": 1.3877787807814457e-16
     },
     {
       "name": "two_pliesEdgewise timber H38",
@@ -1178,10 +1559,10 @@
     },
     {
       "name": "two_pliesEdgewise timber C46",
-      "expected": 3.1776000205080823,
-      "actual": 3.17760002050808,
+      "expected": 3.089954811626337,
+      "actual": 3.08995481162634,
       "passed": true,
-      "absolute_difference": 2.220446049250313e-15
+      "absolute_difference": 3.1086244689504383e-15
     },
     {
       "name": "two_pliesEdgewise timber C50",
@@ -1297,10 +1678,10 @@
     },
     {
       "name": "suctionEdgewise timber C38",
-      "expected": 0.13031619038507794,
-      "actual": 0.130316190385078,
+      "expected": 0.09010342442763113,
+      "actual": 0.0901034244276311,
       "passed": true,
-      "absolute_difference": 5.551115123125783e-17
+      "absolute_difference": 2.7755575615628914e-17
     },
     {
       "name": "suctionEdgewise timber H38",
@@ -1325,10 +1706,10 @@
     },
     {
       "name": "suctionEdgewise timber C46",
-      "expected": 1.626635565974535,
-      "actual": 1.62663556597454,
+      "expected": 1.5682054267200383,
+      "actual": 1.56820542672004,
       "passed": true,
-      "absolute_difference": 4.884981308350689e-15
+      "absolute_difference": 1.7763568394002505e-15
     },
     {
       "name": "suctionEdgewise timber C50",
@@ -1444,10 +1825,10 @@
     },
     {
       "name": "spacingEdgewise timber C38",
-      "expected": 0.08687746025671865,
-      "actual": 0.0868774602567187,
+      "expected": 0.06006894961842076,
+      "actual": 0.0600689496184208,
       "passed": true,
-      "absolute_difference": 5.551115123125783e-17
+      "absolute_difference": 3.469446951953614e-17
     },
     {
       "name": "spacingEdgewise timber H38",
@@ -1472,10 +1853,10 @@
     },
     {
       "name": "spacingEdgewise timber C46",
-      "expected": 1.350587216585418,
-      "actual": 1.35058721658542,
+      "expected": 1.3116337904157536,
+      "actual": 1.31163379041575,
       "passed": true,
-      "absolute_difference": 1.9984014443252818e-15
+      "absolute_difference": 3.552713678800501e-15
     },
     {
       "name": "spacingEdgewise timber C50",
@@ -1591,10 +1972,10 @@
     },
     {
       "name": "gapEdgewise timber C38",
-      "expected": 0.17639127080163072,
-      "actual": 0.176391270801631,
+      "expected": 0.1361785048441839,
+      "actual": 0.136178504844184,
       "passed": true,
-      "absolute_difference": 2.7755575615628914e-16
+      "absolute_difference": 1.1102230246251565e-16
     },
     {
       "name": "gapEdgewise timber H38",
@@ -1619,10 +2000,10 @@
     },
     {
       "name": "gapEdgewise timber C46",
-      "expected": 2.0928290514127097,
-      "actual": 2.09282905141271,
+      "expected": 2.034398912158213,
+      "actual": 2.03439891215821,
       "passed": true,
-      "absolute_difference": 4.440892098500626e-16
+      "absolute_difference": 3.1086244689504383e-15
     },
     {
       "name": "gapEdgewise timber C50",
@@ -1738,10 +2119,10 @@
     },
     {
       "name": "buckling_onlyEdgewise timber C38",
-      "expected": 0.13031619038507794,
-      "actual": 0.130316190385078,
+      "expected": 0.09010342442763113,
+      "actual": 0.0901034244276311,
       "passed": true,
-      "absolute_difference": 5.551115123125783e-17
+      "absolute_difference": 2.7755575615628914e-17
     },
     {
       "name": "buckling_onlyEdgewise timber H38",
@@ -1766,10 +2147,10 @@
     },
     {
       "name": "buckling_onlyEdgewise timber C46",
-      "expected": 0.8388425328895068,
-      "actual": 0.838842532889507,
+      "expected": 0.8235283554614241,
+      "actual": 0.823528355461424,
       "passed": true,
-      "absolute_difference": 2.220446049250313e-16
+      "absolute_difference": 1.1102230246251565e-16
     },
     {
       "name": "buckling_onlyEdgewise timber C50",
@@ -1885,10 +2266,10 @@
     },
     {
       "name": "no_windEdgewise timber C38",
-      "expected": 0.13031619038507794,
-      "actual": 0.130316190385078,
+      "expected": 0.09010342442763113,
+      "actual": 0.0901034244276311,
       "passed": true,
-      "absolute_difference": 5.551115123125783e-17
+      "absolute_difference": 2.7755575615628914e-17
     },
     {
       "name": "no_windEdgewise timber H38",
@@ -1913,10 +2294,10 @@
     },
     {
       "name": "no_windEdgewise timber C46",
-      "expected": 0.21302171316180618,
-      "actual": 0.213021713161806,
+      "expected": 0.14728780650049722,
+      "actual": 0.147287806500497,
       "passed": true,
-      "absolute_difference": 1.942890293094024e-16
+      "absolute_difference": 2.220446049250313e-16
     },
     {
       "name": "no_windEdgewise timber C50",
@@ -2032,10 +2413,10 @@
     },
     {
       "name": "permanentEdgewise timber C38",
-      "expected": 0.11727789251273753,
-      "actual": 0.117277892512738,
+      "expected": 0.07706512655529071,
+      "actual": 0.0770651265552907,
       "passed": true,
-      "absolute_difference": 4.718447854656915e-16
+      "absolute_difference": 1.3877787807814457e-17
     },
     {
       "name": "permanentEdgewise timber H38",
@@ -2060,10 +2441,10 @@
     },
     {
       "name": "permanentEdgewise timber C46",
-      "expected": 0.2556114990291102,
-      "actual": 0.25561149902911,
+      "expected": 0.1679662901473649,
+      "actual": 0.167966290147365,
       "passed": true,
-      "absolute_difference": 1.6653345369377348e-16
+      "absolute_difference": 1.1102230246251565e-16
     },
     {
       "name": "permanentEdgewise timber C50",
@@ -2143,9 +2524,16 @@
       "absolute_difference": 2.7755575615628914e-17
     },
     {
-      "name": "lowFlatwise timber no false OK",
-      "expected": "NZ",
-      "actual": "NZ",
+      "name": "lowFlatwise timber member-only arithmetic pass",
+      "expected": "OK",
+      "actual": "OK",
+      "passed": true,
+      "absolute_difference": null
+    },
+    {
+      "name": "lowFlatwise timber deflection arithmetic pass",
+      "expected": "OK",
+      "actual": "OK",
       "passed": true,
       "absolute_difference": null
     },
@@ -2234,9 +2622,16 @@
       "absolute_difference": 6.938893903907228e-18
     },
     {
-      "name": "lowEdgewise timber no false OK",
-      "expected": "NZ",
-      "actual": "NZ",
+      "name": "lowEdgewise timber member-only arithmetic pass",
+      "expected": "OK",
+      "actual": "OK",
+      "passed": true,
+      "absolute_difference": null
+    },
+    {
+      "name": "lowEdgewise timber deflection arithmetic pass",
+      "expected": "OK",
+      "actual": "OK",
       "passed": true,
       "absolute_difference": null
     },
@@ -2248,7 +2643,6 @@
         "xl/theme/theme1.xml",
         "xl/media/image4.png",
         "xl/media/image3.png",
-        "xl/drawings/vmlDrawing2.vml",
         "xl/worksheets/_rels/sheet1.xml.rels",
         "xl/worksheets/_rels/sheet2.xml.rels",
         "xl/worksheets/_rels/sheet3.xml.rels",
@@ -2256,7 +2650,6 @@
         "xl/drawings/_rels/drawing2.xml.rels",
         "xl/drawings/drawing2.xml",
         "xl/media/image2.png",
-        "xl/drawings/vmlDrawing1.vml",
         "xl/drawings/drawing1.xml",
         "xl/media/image1.png",
         "xl/sharedStrings.xml",
@@ -2268,8 +2661,6 @@
         "xl/printerSettings/printerSettings2.bin",
         "xl/ctrlProps/ctrlProp4.xml",
         "xl/ctrlProps/ctrlProp5.xml",
-        "xl/ctrlProps/ctrlProp6.xml",
-        "xl/ctrlProps/ctrlProp3.xml",
         "xl/printerSettings/printerSettings3.bin",
         "docProps/app.xml",
         "customXml/item1.xml",
@@ -2380,10 +2771,10 @@
     },
     {
       "name": "deliveredEdgewise timber C38",
-      "expected": 0.13031619038507794,
-      "actual": 0.130316190385078,
+      "expected": 0.09010342442763113,
+      "actual": 0.0901034244276311,
       "passed": true,
-      "absolute_difference": 5.551115123125783e-17
+      "absolute_difference": 2.7755575615628914e-17
     },
     {
       "name": "deliveredEdgewise timber H38",
@@ -2408,10 +2799,10 @@
     },
     {
       "name": "deliveredEdgewise timber C46",
-      "expected": 2.0258808248781266,
-      "actual": 2.02588082487813,
+      "expected": 1.9674506856236298,
+      "actual": 1.96745068562363,
       "passed": true,
-      "absolute_difference": 3.552713678800501e-15
+      "absolute_difference": 2.220446049250313e-16
     },
     {
       "name": "deliveredEdgewise timber C50",
