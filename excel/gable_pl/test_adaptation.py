@@ -22,9 +22,16 @@ def check(name,a,b,tol=1e-7):
 
 
 def layout(original,adapted):
- allowed={'xl/workbook.xml','xl/worksheets/sheet1.xml','xl/worksheets/sheet2.xml','xl/worksheets/sheet3.xml'}
+ allowed={'xl/workbook.xml','xl/worksheets/sheet1.xml','xl/worksheets/sheet2.xml','xl/worksheets/sheet3.xml','xl/_rels/workbook.xml.rels','[Content_Types].xml','xl/calcChain.xml'}
  with ZipFile(original) as src,ZipFile(adapted) as out:
-  assert set(src.namelist())==set(out.namelist())
+  assert set(src.namelist())-{'xl/calcChain.xml'}==set(out.namelist())
+  assert 'calcChain' not in out.read('xl/_rels/workbook.xml.rels').decode()
+  assert '/xl/calcChain.xml' not in out.read('[Content_Types].xml').decode()
+  for filename in ['xl/_rels/workbook.xml.rels','[Content_Types].xml']:
+   a=etree.fromstring(src.read(filename));b=etree.fromstring(out.read(filename))
+   for child in list(a):
+    if child.get('Type','').endswith('/calcChain') or child.get('PartName')=='/xl/calcChain.xml':a.remove(child)
+   assert etree.tostring(a,method='c14n')==etree.tostring(b,method='c14n')
   identical=[]
   for name in src.namelist():
    if name not in allowed:
@@ -131,6 +138,7 @@ def run(original):
    if label=='base':base=after
   final=root/'final.xlsx';cache(source,base,final);source.write_bytes(final.read_bytes())
  layout(original,source);oracle(load_workbook(source,data_only=True),'delivered')
+ (ROOT/'output/Gable_panel_stud_PL_v2.xlsx').write_bytes(source.read_bytes())
  (ROOT/'gable_pl/test_results.json').write_text(json.dumps({'passed':len(CHECKS),'failed':0,'checks':CHECKS},ensure_ascii=False,indent=2))
  print(len(CHECKS),'checks passed; original layout retained')
 

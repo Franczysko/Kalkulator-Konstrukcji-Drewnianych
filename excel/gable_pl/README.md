@@ -1,6 +1,14 @@
 # Gable panel stud — adaptacja PL z zachowaniem wyglądu oryginału
 
-Gotowy plik: [Gable_panel_stud_PL.xlsx](../output/Gable_panel_stud_PL.xlsx).
+Gotowy plik: [Gable_panel_stud_PL_v2.xlsx](../output/Gable_panel_stud_PL_v2.xlsx).
+
+Poprawka zgodności z Microsoft Excel: usunięto nieaktualny `calcChain.xml` i jego
+odwołania. Wcześniejszy plik zawierał dwa wpisy P60, które po adaptacji nie były
+już formułami. Excel zgłaszał naprawę tych rekordów. Formuły, wartości i wygląd
+pozostały bez zmian; automatyczne pełne przeliczenie pozwala Excelowi odtworzyć łańcuch.
+Test odtwarza dokładny problem z opublikowanego pliku i sprawdza usunięcie tylko
+metadanych: `python excel/gable_pl/test_package_fix.py`. Nie wykonano otwarcia
+wersji v2 w desktopowym Microsoft Excel w tym środowisku Linux.
 
 Zgodnie ze zmianą planu jest to adaptacja **oryginalnego „Gable panel stud design
 EC5.xlsx”**. Nie wykorzystuje przebudowanego wcześniej formularza ściany.
@@ -16,13 +24,13 @@ wyniki podręczne wracają do oryginalnych komórek bez zmiany ich formatowania.
 
 Test wykazał:
 
-- identyczny zestaw 41 elementów pakietu XLSX;
-- **37 elementów identycznych bajt po bajcie**, w tym styles.xml, motyw, rysunki,
+- 40 elementów pakietu XLSX; usunięto wyłącznie opcjonalny, nieaktualny łańcuch obliczeń z oryginalnych 41 elementów;
+- **34 elementy identyczne bajt po bajcie**, w tym styles.xml, motyw, rysunki,
   VML, kontrolki, ustawienia drukarek, relacje i pozostałe pliki;
 - identyczne metadane układu wszystkich trzech arkuszy: komórki i ich style,
   wysokości/szerokości, scalenia, widoki, obszary wydruku i formatowanie warunkowe;
 - zmiany wyłącznie zawartości komórek trzech arkuszy oraz metadanych przeliczania
-  i parametrów nazwanych w workbook.xml.
+  i parametrów nazwanych w workbook.xml; deklaracje pakietu i relacje zaktualizowano wyłącznie w celu usunięcia calcChain.xml.
 
 Oczywiście liczby, wyniki i kilka opisów są inne — to cel adaptacji obliczeń.
 Porównanie PDF oryginału i wersji PL dało tę samą liczbę pięciu stron i te same

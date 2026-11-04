@@ -4,6 +4,7 @@ from zipfile import ZipFile, ZIP_DEFLATED
 from xml.sax.saxutils import escape
 import re
 import sys
+from package_fix import clean_calc_chain
 
 ROOT=Path(__file__).resolve().parents[1]
 SOFT={
@@ -145,6 +146,7 @@ def adapt(source,output):
     xml=re.sub(r'<calcPr\b[^>]*/>','<calcPr calcId="0" calcMode="auto" fullCalcOnLoad="1" forceFullCalc="1"/>',xml)
     payload=xml.encode('utf-8');changed.append(item.filename)
    out.writestr(item,payload)
+ clean_calc_chain(output,output)
  return changed
 
 if __name__=='__main__':

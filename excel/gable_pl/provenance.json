@@ -2,12 +2,10 @@
   "date": "2026-11-04",
   "source_filename": "Gable panel stud design EC5.xlsx",
   "source_sha256": "2f03b98000d0b033687c277e50f8486ca6fe512797af46c7f4bedfb790fbeb24",
-  "output_filename": "Gable_panel_stud_PL.xlsx",
-  "output_sha256": "ec7de7eb0ff80d58c9a0b96bb49d4bdc695f831fbbe9002c5e28dd9e16a9c8b9",
+  "output_filename": "Gable_panel_stud_PL_v2.xlsx",
+  "output_sha256": "269811ac8f9ec2ab812327e3e888006b9be7a88d4fb1cbc583a7da6c296c90ea",
   "unchanged_parts": [
-    "[Content_Types].xml",
     "_rels/.rels",
-    "xl/_rels/workbook.xml.rels",
     "xl/theme/theme1.xml",
     "xl/media/image4.png",
     "xl/media/image3.png",
@@ -34,7 +32,6 @@
     "xl/ctrlProps/ctrlProp6.xml",
     "xl/ctrlProps/ctrlProp3.xml",
     "xl/printerSettings/printerSettings3.bin",
-    "xl/calcChain.xml",
     "docProps/app.xml",
     "customXml/item1.xml",
     "customXml/itemProps1.xml",
@@ -44,6 +41,8 @@
     "customXml/_rels/item2.xml.rels"
   ],
   "changed_parts": [
+    "[Content_Types].xml",
+    "xl/_rels/workbook.xml.rels",
     "xl/workbook.xml",
     "xl/worksheets/sheet3.xml",
     "xl/worksheets/sheet2.xml",
@@ -51,5 +50,10 @@
   ],
   "accepted_basis": "Dostarczone wydania bez aktualizacji; śnieg i wiatr przyjęte zgodnie z instrukcją użytkownika.",
   "missing_norm": "Pełna PN-EN 1990 z polskim NA nie została znaleziona w załącznikach.",
-  "checks": 337
+  "checks": 337,
+  "removed_parts": [
+    "xl/calcChain.xml"
+  ],
+  "compatibility_fix": "Usunięto stary łańcuch obliczeń, jego relację i Override; sprawdzono kompletność relacji pakietu.",
+  "microsoft_excel_open_test": "Niewykonany: brak desktopowego Microsoft Excel w tym środowisku."
 }

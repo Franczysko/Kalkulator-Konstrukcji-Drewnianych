@@ -1,0 +1,17 @@
+{
+  "reported_stale_records": [
+    {
+      "sheet_id": "6",
+      "cell": "P60"
+    },
+    {
+      "sheet_id": "1",
+      "cell": "P60"
+    }
+  ],
+  "repair_changes_only_metadata": true,
+  "all_formulas_values_styles_graphics_preserved": true,
+  "package_relationship_targets_exist": true,
+  "cleanup_idempotent": true,
+  "actual_microsoft_excel_open_test": "not available in this Linux environment"
+}

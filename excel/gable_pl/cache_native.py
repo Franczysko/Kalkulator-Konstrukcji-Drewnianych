@@ -5,6 +5,7 @@ from openpyxl import load_workbook
 from datetime import date,datetime
 from openpyxl.utils.datetime import to_excel
 import re
+from package_fix import clean_calc_chain
 
 CELL=re.compile(r'<c\b[^>]*?(?:/>|>.*?</c>)',re.S)
 
@@ -32,3 +33,5 @@ def cache(source,calculated,destination):
      return opening+body
     payload=CELL.sub(replace,payload.decode('utf-8')).encode('utf-8')
    dst.writestr(item,payload)
+
+ clean_calc_chain(destination,destination)
